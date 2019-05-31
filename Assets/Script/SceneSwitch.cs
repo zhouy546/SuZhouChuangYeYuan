@@ -31,9 +31,13 @@ public class SceneSwitch : MonoBehaviour
         {
             EventCenter.Broadcast(EventDefine.ArriveDisplayScene);
             EventCenter.Broadcast(EventDefine.ArriveDisplayShowNode, udp);
+            EventCenter.Broadcast(EventDefine.ArriveDisplayShowNode, udp);
+            EventCenter.Broadcast(EventDefine.StartGoDisplayScene);
+
         }
         else {
             isDisplayScene = true;
+            EventCenter.Broadcast(EventDefine.StartGoDisplayScene);
             LeanTween.moveY(this.gameObject, DisplaySceneTrans.position.y, 0.5f).setOnComplete(delegate () {
                 EventCenter.Broadcast(EventDefine.ArriveDisplayScene);
                 EventCenter.Broadcast(EventDefine.ArriveDisplayShowNode, udp);
